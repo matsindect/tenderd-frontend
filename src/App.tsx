@@ -1,24 +1,18 @@
 import React from 'react';
 import logo from './logo.svg';
 import './App.css';
-
-function App() {
+import SideBar from './layouts/sidebar/sidebar';
+import MainRoutes from './Routes';
+import { Provider } from 'react-redux';
+import { store } from './store/store';
+const App = ()=> {
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.tsx</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+    <div className="flex h-screen">
+      <Provider store={store}>
+        <SideBar/>
+        <MainRoutes/>
+      </Provider>
+     
     </div>
   );
 }
